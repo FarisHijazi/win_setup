@@ -52,87 +52,93 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 
 ## downloads
 
-    ```powershell
+  ```powershell
 
-    # enable running scripts:
-    set-executionpolicy remotesigned
+  # enable running scripts:
+  set-executionpolicy remotesigned
 
-    # windows 10 debloater:
-    iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/debloat'))
+  # windows 10 debloater:
+  iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/debloat'))
 
-    #
-    # download and install chocolatey
-    #
+  #
+  # download and install chocolatey
+  #
 
-    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-    #@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+  Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+  #@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 
-    refreshenv
-    choco upgrade chocolatey
+  refreshenv
+  choco upgrade chocolatey
 
-    choco install -y dropbox --pre 
-    choco install -y git 7zip unzip ffmpeg 
-    choco install -y vscode windirstat everything dupeguru powertoys autohotkey lightshot imageglass googlechrome qbittorrent linkshellextension origin
-    choco install -y vlc steam barrier discord
-    choco install -y anaconda3 --params '"/AddToPath"'
-    choco install -y cmake --installargs 'ADD_CMAKE_TO_PATH=System'
-    choco install -y jetbrainstoolbox
+  choco install -y dropbox --pre
+  choco install -y git 7zip unzip ffmpeg
+  choco install -y vscode windirstat everything dupeguru powertoys autohotkey lightshot imageglass googlechrome qbittorrent linkshellextension origin
+  choco install -y vlc steam barrier discord
+  choco install -y anaconda3 --params '"/AddToPath"'
+  choco install -y cmake --installargs 'ADD_CMAKE_TO_PATH=System'
+  choco install -y jetbrainstoolbox
+  choco install -y pasteintofile
+  choco install -y click-monitor-ddc
+  choco install -y mingw
+  choco install usbip
+  # Install original packages...
+  # Nvidia graphics driver (in case you'd need it)
+  choco install -y geforce-experience
+  choco install -y geforce-game-ready-driver
+  choco install -y geforce-game-ready-driver-win10
 
-    # Install original packages...
-    # Nvidia graphics driver (in case you'd need it)
-    choco install -y geforce-experience
-    choco install -y geforce-game-ready-driver
-    choco install -y geforce-game-ready-driver-win10
+  # Some tools...
+  choco install -y imageglass
+  choco install -y 7zip.install
+  # choco install -y dexpot
+  # choco install -y dumeter
+  choco install -y f.lux # and put coordinates as: 24.7054901,46.690394
+  # choco install -y foxitreader
+  # choco install -y googledrive
+  # choco install -y imageresizerapp
+  choco install -y notepadplusplus.install
+  # choco install -y jpegtran
+  # choco install -y paint.net
+  # choco install -y skype
+  # choco install -y smplayer
+  choco install -y treesizefree
+  # choco install -y zoomit
 
-    # Some tools...
-    choco install -y imageglass
-    choco install -y 7zip.install
-    # choco install -y dexpot
-    # choco install -y dumeter
-    choco install -y f.lux # and put coordinates as: 24.7054901,46.690394
-    # choco install -y foxitreader
-    # choco install -y googledrive
-    # choco install -y imageresizerapp
-    choco install -y notepadplusplus.install
-    # choco install -y jpegtran
-    # choco install -y paint.net
-    # choco install -y skype
-    # choco install -y smplayer
-    choco install -y treesizefree
-    # choco install -y zoomit
+  # More web browsers...
+  choco install -y Firefox
+  # choco install -y GoogleChrome
+  # choco install -y GoogleChrome.Canary
 
-    # More web browsers...
-    choco install -y Firefox
-    # choco install -y GoogleChrome
-    # choco install -y GoogleChrome.Canary
+  # Development stuff...
+  choco install -y dotnet4.6.2
+  choco install -y dotnet4.7.2
+  choco install -y dotnetcore
+  # Fun with Visual Studio 2017... other versions are available too
+  choco install -y VisualStudio2017Professional
+  choco install -y visualstudio2017-workload-netweb
+  choco install -y visualstudio2017-workload-netcoretools
+  choco install -y vscode
 
-    # Development stuff...
-    choco install -y dotnet4.6.2
-    choco install -y dotnet4.7.2
-    choco install -y dotnetcore
-    # Fun with Visual Studio 2017... other versions are available too
-    choco install -y VisualStudio2017Professional
-    choco install -y visualstudio2017-workload-netweb
-    choco install -y visualstudio2017-workload-netcoretools
-    choco install -y vscode
+  # Install WebPI packages
+  choco install -y IISExpress10 -source webpi
+  choco install -y WindowsAzurePowershellGet -source webpi
+  choco install -y WindowsInstaller45 -source webpi
 
-    # Install WebPI packages
-    choco install -y IISExpress10 -source webpi
-    choco install -y WindowsAzurePowershellGet -source webpi
-    choco install -y WindowsInstaller45 -source webpi
+  ## an Office suite
+  # choco install -y libreoffice-fresh
+  # choco install -y Office365ProPlus
 
-    ## an Office suite
-    # choco install -y libreoffice-fresh
-    # choco install -y Office365ProPlus
+  # Essential fonts ;-)
+  choco install -y dejavufonts
+  choco install -y FiraCode
+  choco install -y hackfont
+  choco install -y inconsolata
+  choco install -y RobotoFonts
 
-    # Essential fonts ;-)
-    choco install -y dejavufonts
-    choco install -y FiraCode
-    choco install -y hackfont
-    choco install -y inconsolata
-    choco install -y RobotoFonts
+  
+  choco install -y cygwin
 
-    ```
+  ```
 
 
 <!-- - [chrome](https://www.google.com/chrome/)
