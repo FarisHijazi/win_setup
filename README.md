@@ -80,7 +80,9 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
   choco install -y pasteintofile
   choco install -y click-monitor-ddc
   choco install -y mingw
-  choco install usbip
+  choco install -y openssh
+  choco install -y usbip
+  choco install -y ngrok
   # Install original packages...
   # Nvidia graphics driver (in case you'd need it)
   choco install -y geforce-experience
@@ -138,6 +140,16 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
   
   choco install -y cygwin
 
+  ```
+  
+  install openssh
+  ```
+  cd "C:\Program Files\OpenSSH-Win64"
+  powershell.exe -ExecutionPolicy Bypass -File install-sshd.ps1
+  New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH Server (sshd)' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
+  netsh advfirewall firewall add rule name=sshd dir=in action=allow protocol=TCP localport=22
+  Set-Service sshd -StartupType Automatic
+  net start sshd
   ```
 
 
