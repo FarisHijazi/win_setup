@@ -151,6 +151,12 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
   Set-Service sshd -StartupType Automatic
   net start sshd
   ```
+  
+  ```
+  # create ~/bin
+  mkdir bin
+  curl -L "https://github.com/H-M-H/Weylus/releases/download/v0.11.4/Windows.zip" > weylus.zip && unzip weylus.zip && rm weylus.zip
+  ```
 
 
 <!-- - [chrome](https://www.google.com/chrome/)
