@@ -12,7 +12,6 @@ Links:
 - <https://geekylifestyle.com/remove-windows-10-bloat-with-this-amazing-script>
 - <https://gist.githubusercontent.com/matthewjberger/2f4295887d6cb5738fa34e597f457b7f/raw/b23fa065febed8a2d7c2f030fba6da381f640997/Remove-Windows10-Bloat.bat>
 
-Also check: <file:///C:\Users\Faris\Dropbox\_Folder_\pc_setup\README.txt>
 
 - that powershell script that disables windows telemetry and stuff
 
@@ -59,10 +58,11 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 
   # windows 10 debloater:
   iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/debloat'))
+  ```
 
-  #
-  # download and install chocolatey
-  #
+  ### Download and install chocolatey
+
+  ```powershell
 
   Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
   #@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
@@ -88,6 +88,13 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
   choco install -y geforce-experience
   choco install -y geforce-game-ready-driver
   choco install -y geforce-game-ready-driver-win10
+
+  choco install -y notion
+  choco install -y docker-cli
+  choco install -y docker-machine
+  choco install -y docker-compose
+  choco install -y docker-desktop
+
 
   # Some tools...
   choco install -y imageglass
@@ -140,6 +147,7 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
   
   choco install -y cygwin
 
+  winget install -e --id Docker.DockerDesktop
   ```
   
   install openssh
@@ -159,6 +167,63 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
   ```
 
 
+- disable shift+alt to change languages, go to language > keyboard > input language hotkeys
+- download drivers from this site: https://rog.asus.com/motherboards/rog-strix/rog-strix-x299-e-gaming-ii-model/helpdesk_download/
+- hold down shift and disable sticky keys hotkey
+- create a local account without a microsoft account and choose the name, this way you can be sure to choose the user folder name
+- fancy zones change settings
+- [ ] make a backup of those settings ????
+- signin with Thiqah onedrive
+- disable UAC, make sure account is admin
+- set wallpaper
+- restore cookies and sessions
+- change wallpaper
+- set static IP addresses
+- task scheduler run AHK
+- imageglass settings
+- add scattered steam folder to steam
+- add border around active window: settings > colors > Title bars and windows borders
+- clean bookmarks (deduplicate and remove annoying empty folders)
+- powertoys disable coffee and mouse stuff
+- add ~/init.cmd
+- modify "C:\tools\Anaconda3\condabin\conda_hook.bat" (add `conda activate base`)
+- qbittorrent dark theme: D:\e\Documents\installers\qbit-darktheme\breeze-dark.qbtheme
+- add synology NAS \\FarisNAS\main
+- `D:\sw\ImageGlass\ImageGlass_7.6.4.30_x64`
+
+- setup filehistory
+- disable activity history in settings (to disable taskview activity history)
+- add git-bash to path "C:\Program Files\Git\bin" and add alias git-bash: "C:\Program Files\Git\bin\bash.exe" --login -i
+- jupyter server setup for remote access
+
+  ```
+  yes|jupyter notebook --generate-config
+  yes|jupyter lab --generate-config
+  echo 'c.NotebookApp.ip = "0.0.0.0"
+  c.ServerApp.allow_remote_access = True' | tee -a ~/.jupyter/jupyter_notebook_config.py ~/.jupyter/jupyter_lab_config.py
+  ```
+
+- route the 0.0.0.0 to localhost:
+  run as admin
+
+  ```cmd
+  echo "    0.0.0.0         localhost" >> C:\Windows\System32\drivers\etc\hosts
+  ```
+- setup periodic backup scripts
+- schedule AHK and SSHD on startup and on logon
+- linux install cuda
+
+
+```
+wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-wsl-ubuntu.pin
+sudo mv cuda-wsl-ubuntu.pin /etc/apt/preferences.d/cuda-repository-pin-600
+wget https://developer.download.nvidia.com/compute/cuda/11.8.0/local_installers/cuda-repo-wsl-ubuntu-11-8-local_11.8.0-1_amd64.deb
+sudo dpkg -i cuda-repo-wsl-ubuntu-11-8-local_11.8.0-1_amd64.deb
+sudo cp /var/cuda-repo-wsl-ubuntu-11-8-local/cuda-*-keyring.gpg /usr/share/keyrings/
+sudo apt-get update
+sudo apt-get -y install cuda
+```
+
 <!-- - [chrome](https://www.google.com/chrome/)
 - [Dropbox](https://www.dropbox.com) - [dl](https://www.dropbox.com/downloading)
 - anaconda3 -->
@@ -174,7 +239,6 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
   > `"sync.gist": "21b019f4594697ee499b40a7182df6bd"`   -->
   
 - settings up apps:
-  - F.lux: put coordinates as: 24.7054901,46.690394
   - ~razer synapse
   - lghub and setup "D:\e\Documents\installers\lghub_installer.exe"
     - "D:\e\Documents\_Backups\LGHUB"
@@ -224,6 +288,7 @@ Drivers:
 
 - Laptop: touchpad triple click = middle mouse button
 - Laptop: lid close: do nothing
+- mouse scroll set to 7 lines
 
 ## file assocations
 
@@ -244,6 +309,7 @@ Drivers:
 ## context menu
 
 - edit with notepad++
+- remove the "Send to" context menu item
 
 ## misc
 
