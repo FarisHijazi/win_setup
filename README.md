@@ -34,7 +34,7 @@ Links:
   - open dropbox: <https://www.dropbox.com/preview/_Folder_/pc_setup/PC_setup.md?role=personal>
 - set PC name
 - ensure that partition "d" has drive letter D
-- Pin D:\Buza to quick access
+- Pin D:\home to quick access
 - relocate (documents, videos, pictures) to their clones in D:\
 - add toolbar for downloads
 - type UAC and set slider all the way down
@@ -51,121 +51,121 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 
 ## downloads
 
-  ```powershell
+```powershell
 
-  # enable running scripts:
-  set-executionpolicy remotesigned
+# enable running scripts:
+set-executionpolicy remotesigned
 
-  # windows 10 debloater:
-  iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/debloat'))
-  ```
+# windows 10 debloater:
+iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/debloat'))
+```
 
-  ### Download and install chocolatey
+### Download and install chocolatey
 
-  ```powershell
+```powershell
 
-  Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-  #@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+#@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 
-  refreshenv
-  choco upgrade chocolatey
+refreshenv
+choco upgrade chocolatey
 
-  choco install -y dropbox --pre
-  choco install -y git 7zip unzip ffmpeg
-  choco install -y vscode windirstat everything dupeguru powertoys autohotkey lightshot imageglass googlechrome qbittorrent linkshellextension origin
-  choco install -y vlc steam barrier discord
-  choco install -y anaconda3 --params '"/AddToPath"'
-  choco install -y cmake --installargs 'ADD_CMAKE_TO_PATH=System'
-  choco install -y jetbrainstoolbox
-  choco install -y pasteintofile
-  choco install -y click-monitor-ddc
-  choco install -y mingw
-  choco install -y openssh
-  choco install -y usbip
-  choco install -y ngrok
-  # Install original packages...
-  # Nvidia graphics driver (in case you'd need it)
-  choco install -y geforce-experience
-  choco install -y geforce-game-ready-driver
-  choco install -y geforce-game-ready-driver-win10
+choco install -y dropbox --pre
+choco install -y git 7zip unzip ffmpeg
+choco install -y vscode windirstat everything dupeguru powertoys autohotkey lightshot imageglass googlechrome qbittorrent linkshellextension origin
+choco install -y vlc steam barrier discord
+choco install -y anaconda3 --params '"/AddToPath"'
+choco install -y cmake --installargs 'ADD_CMAKE_TO_PATH=System'
+choco install -y jetbrainstoolbox
+choco install -y pasteintofile
+choco install -y click-monitor-ddc
+choco install -y mingw
+choco install -y openssh
+choco install -y usbip
+choco install -y ngrok
+# Install original packages...
+# Nvidia graphics driver (in case you'd need it)
+choco install -y geforce-experience
+choco install -y geforce-game-ready-driver
+choco install -y geforce-game-ready-driver-win10
 
-  choco install -y notion
-  choco install -y docker-cli
-  choco install -y docker-machine
-  choco install -y docker-compose
-  choco install -y docker-desktop
+choco install -y notion
+choco install -y obs-studio
+choco install -y docker-cli
+choco install -y docker-machine
+choco install -y docker-compose
+choco install -y docker-desktop
 
 
-  # Some tools...
-  choco install -y imageglass
-  choco install -y 7zip.install
-  # choco install -y dexpot
-  # choco install -y dumeter
-  choco install -y f.lux # and put coordinates as: 24.7054901,46.690394
-  # choco install -y foxitreader
-  # choco install -y googledrive
-  # choco install -y imageresizerapp
-  choco install -y notepadplusplus.install
-  # choco install -y jpegtran
-  # choco install -y paint.net
-  # choco install -y skype
-  # choco install -y smplayer
-  choco install -y treesizefree
-  # choco install -y zoomit
+# Some tools...
+choco install -y imageglass
+choco install -y 7zip.install
+# choco install -y dexpot
+# choco install -y dumeter
+choco install -y f.lux # and put coordinates as: 24.7054901,46.690394
+# choco install -y foxitreader
+# choco install -y googledrive
+# choco install -y imageresizerapp
+choco install -y notepadplusplus.install
+# choco install -y jpegtran
+# choco install -y paint.net
+# choco install -y skype
+# choco install -y smplayer
+choco install -y treesizefree
+# choco install -y zoomit
 
-  # More web browsers...
-  choco install -y Firefox
-  # choco install -y GoogleChrome
-  # choco install -y GoogleChrome.Canary
+# More web browsers...
+choco install -y Firefox
+# choco install -y GoogleChrome
+# choco install -y GoogleChrome.Canary
 
-  # Development stuff...
-  choco install -y dotnet4.6.2
-  choco install -y dotnet4.7.2
-  choco install -y dotnetcore
-  # Fun with Visual Studio 2017... other versions are available too
-  choco install -y VisualStudio2017Professional
-  choco install -y visualstudio2017-workload-netweb
-  choco install -y visualstudio2017-workload-netcoretools
-  choco install -y vscode
+# Development stuff...
+choco install -y dotnet4.6.2
+choco install -y dotnet4.7.2
+choco install -y dotnetcore
+# Fun with Visual Studio 2017... other versions are available too
+choco install -y VisualStudio2017Professional
+choco install -y visualstudio2017-workload-netweb
+choco install -y visualstudio2017-workload-netcoretools
+choco install -y vscode
 
-  # Install WebPI packages
-  choco install -y IISExpress10 -source webpi
-  choco install -y WindowsAzurePowershellGet -source webpi
-  choco install -y WindowsInstaller45 -source webpi
+# Install WebPI packages
+choco install -y IISExpress10 -source webpi
+choco install -y WindowsAzurePowershellGet -source webpi
+choco install -y WindowsInstaller45 -source webpi
 
-  ## an Office suite
-  # choco install -y libreoffice-fresh
-  # choco install -y Office365ProPlus
+## an Office suite
+# choco install -y libreoffice-fresh
+# choco install -y Office365ProPlus
 
-  # Essential fonts ;-)
-  choco install -y dejavufonts
-  choco install -y FiraCode
-  choco install -y hackfont
-  choco install -y inconsolata
-  choco install -y RobotoFonts
+# Essential fonts ;-)
+choco install -y dejavufonts
+choco install -y FiraCode
+choco install -y hackfont
+choco install -y inconsolata
+choco install -y RobotoFonts
 
-  
-  choco install -y cygwin
 
-  winget install -e --id Docker.DockerDesktop
-  ```
-  
-  install openssh
-  ```
-  cd "C:\Program Files\OpenSSH-Win64"
-  powershell.exe -ExecutionPolicy Bypass -File install-sshd.ps1
-  New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH Server (sshd)' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
-  netsh advfirewall firewall add rule name=sshd dir=in action=allow protocol=TCP localport=22
-  Set-Service sshd -StartupType Automatic
-  net start sshd
-  ```
-  
-  ```
-  # create ~/bin
-  mkdir bin
-  curl -L "https://github.com/H-M-H/Weylus/releases/download/v0.11.4/Windows.zip" > weylus.zip && unzip weylus.zip && rm weylus.zip
-  ```
+choco install -y cygwin
 
+winget install -e --id Docker.DockerDesktop
+```
+
+install openssh
+```
+cd "C:\Program Files\OpenSSH-Win64"
+powershell.exe -ExecutionPolicy Bypass -File install-sshd.ps1
+New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH Server (sshd)' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
+netsh advfirewall firewall add rule name=sshd dir=in action=allow protocol=TCP localport=22
+Set-Service sshd -StartupType Automatic
+net start sshd
+```
+
+```
+# create ~/bin
+mkdir bin
+curl -L "https://github.com/H-M-H/Weylus/releases/download/v0.11.4/Windows.zip" > weylus.zip && unzip weylus.zip && rm weylus.zip
+```
 
 - disable shift+alt to change languages, go to language > keyboard > input language hotkeys
 - download drivers from this site: https://rog.asus.com/motherboards/rog-strix/rog-strix-x299-e-gaming-ii-model/helpdesk_download/
@@ -187,7 +187,7 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 - powertoys disable coffee and mouse stuff
 - add ~/init.cmd
 - modify "C:\tools\Anaconda3\condabin\conda_hook.bat" (add `conda activate base`)
-- qbittorrent dark theme: D:\e\Documents\installers\qbit-darktheme\breeze-dark.qbtheme
+- qbittorrent dark theme: D:\home\Documents\installers\qbit-darktheme\breeze-dark.qbtheme
 - add synology NAS \\FarisNAS\main
 - `D:\sw\ImageGlass\ImageGlass_7.6.4.30_x64`
 
@@ -239,9 +239,11 @@ sudo apt-get -y install cuda
   > `"sync.gist": "21b019f4594697ee499b40a7182df6bd"`   -->
   
 - settings up apps:
+  - change date format in windows
+  - disable windows app notifications
   - ~razer synapse
-  - lghub and setup "D:\e\Documents\installers\lghub_installer.exe"
-    - "D:\e\Documents\_Backups\LGHUB"
+  - lghub and setup "D:\home\Documents\installers\lghub_installer.exe"
+    - "D:\home\Documents\_Backups\LGHUB"
   - powertoys
     - make fancy zones, set margin=0
   - vscode allow settings sync, sign in to Github theefaris@gmail.com
@@ -261,8 +263,8 @@ sudo apt-get -y install cuda
     - 
 
 Drivers:
-- `"D:\e\Downloads\Drivers rog strix x299-e gaming ii\DRV_MEI_Intel_Cons_KBL_TP_W10_64_V19521401470_20200710R\AsusSetup.exe"`
-- `"D:\e\Downloads\Drivers rog strix x299-e gaming ii\DRV_VROC_Intel_HEDT_TP_W10_64_VER6201239_20191108R\Install\AsusSetup.exe"`
+- `"D:\home\Downloads\Drivers rog strix x299-e gaming ii\DRV_MEI_Intel_Cons_KBL_TP_W10_64_V19521401470_20200710R\AsusSetup.exe"`
+- `"D:\home\Downloads\Drivers rog strix x299-e gaming ii\DRV_VROC_Intel_HEDT_TP_W10_64_VER6201239_20191108R\Install\AsusSetup.exe"`
 
 ## settings
 
@@ -274,6 +276,7 @@ Drivers:
   ```
 - disable superfetch
 - power settings: high performance mode
+- power settings: disable sleep
 - disable UAC warning
 - disable "hide extensions for known file types"
 - keybaord hold speed:
