@@ -1,0 +1,37 @@
+# root: /D/ drive
+- home/OneDrive - KFUPM/**
+- home/OneDrive - Thiqah-Cloud/**
+- home/Google Drive/**
+- games/**
+- data/trdg_data/**
+- data/facescrub/**
+- sd-models/**
+
+# root: /C/Users/faris
+- .conda/**
+- .cache/**
+- AppData/Local/**
++ AppData/Local/LGHUB/**
+# - AppData/Local/Docker/**
+# - AppData/Local/Packages/**
+# - AppData/Local/pip/**
+# - AppData/Local/pCloud/**
+# - AppData/Local/Microsoft/**
+# - AppData/Local/Google/**
+# - AppData/Local/JetBrains/**
+
+
+# any
+- OneDrive/**
+- $RECYCLE.BIN/**
+- Program Files/**
+# Exclude specific file types (e.g., .tmp and .bak files)
+- *.tmp
+- *.bak
+# Exclude specific folders (e.g., cache, temp, and node_modules)
+- cache/**
+- temp/**
+- node_modules/**
+# Exclude specific folders within AppData/Roaming (e.g., Spotify and Slack)
+- AppData/Roaming/Spotify/**
+- AppData/Roaming/Slack/**
