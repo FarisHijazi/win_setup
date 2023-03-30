@@ -1,6 +1,5 @@
 # root: /D/ drive
-- home/OneDrive - KFUPM/**
-- home/OneDrive - Thiqah-Cloud/**
+- home/OneDrive - */**
 - home/Google Drive/**
 - games/**
 - data/trdg_data/**
