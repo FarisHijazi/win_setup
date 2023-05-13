@@ -133,7 +133,7 @@ choco install -y WindowsAzurePowershellGet -source webpi
 choco install -y WindowsInstaller45 -source webpi
 
 choco install -y cygwin
-choco install -y anaconda3 --params '"/AddToPath"'
+choco install -y miniconda3 --params="'/AddToPath:1 /RegisterPython:1'"
 choco install -y cmake --installargs 'ADD_CMAKE_TO_PATH=System'
 
 # winget install -y -e --id Docker.DockerDesktop
