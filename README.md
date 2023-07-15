@@ -149,6 +149,16 @@ Set-Service sshd -StartupType Automatic
 net start sshd
 ```
 
+[Authenticate SSH keys for the SSH server](https://superuser.com/a/1697321):
+
+in powershell, run:
+```powershell
+"C:\ProgramData\ssh\administrators_authorized_keys" /inheritance:r /grant "Administrators:F" /grant "SYSTEM:F"
+```
+
+Copy `id_rsa.pub` file to windows server at location `C:\ProgramData\ssh\administrators_authorized_keys` (you might have to create this file)
+
+
 ```sh
 # create ~/bin
 mkdir ~/bin; cd ~/bin
