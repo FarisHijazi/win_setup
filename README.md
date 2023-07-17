@@ -149,7 +149,7 @@ Set-Service sshd -StartupType Automatic
 net start sshd
 ```
 
-[Authenticate SSH keys for the SSH server](https://superuser.com/a/1697321):
+### [Authenticate SSH keys for the SSH server](https://superuser.com/a/1697321):
 
 in powershell, run:
 ```powershell
