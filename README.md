@@ -103,6 +103,8 @@ choco install -y geforce-game-ready-driver-win10
 choco install -y usbip
 choco install -y crystaldiskmark
 choco install -y eartrumpet
+choco install -y msiafterburner
+choco install -y tailscale
 
 choco install -y notion
 choco install -y obs-studio
