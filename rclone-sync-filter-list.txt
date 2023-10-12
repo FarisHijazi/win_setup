@@ -1,12 +1,13 @@
 # root: /D/ drive
 - home/OneDrive - */**
 - home/Google Drive/**
+- home/Projects/sd-models/**
 - games/**
 - data/trdg_data/**
 - data/facescrub/**
-- sd-models/**
 
 # root: /C/Users/faris
+- .vscode/**
 - .conda/**
 - .cache/**
 - AppData/Local/**
@@ -21,6 +22,8 @@
 
 
 # any
+- venv/**
+- site-packages/**
 - OneDrive/**
 - $RECYCLE.BIN/**
 - Program Files/**
@@ -28,8 +31,8 @@
 - *.tmp
 - *.bak
 # Exclude specific folders (e.g., cache, temp, and node_modules)
-- cache/**
-- temp/**
+- **/cache/**
+- **/temp/**
 - node_modules/**
 # Exclude specific folders within AppData/Roaming (e.g., Spotify and Slack)
 - AppData/Roaming/Spotify/**

@@ -1,26 +1,21 @@
 Set-StrictMode -Version Latest
 
 $curr_date = Get-Date -UFormat "%Y%m%d_%H%M%S"
+mkdir -Force C:/Users/faris/rclone_logs
 
 # sync C:/Users/faris to pcloud
-rclone sync "C:/Users/faris/" pcloud10tb:/backups/mirror/faris --backup-dir pcloud10tb:/backups/incremental/"$curr_date"    --filter-from rclone-sync-filter-list.txt -P -l --max-backlog=-1 --transfers=30 --buffer-size=50M --use-mmap --fast-list --drive-chunk-size 64M --retries 3 --timeout 60s --contimeout 60s
-
+Start-Process -FilePath rclone -ArgumentList 'sync "C:/Users/faris/" pcloud10tb:/backups/mirror/faris --backup-dir pcloud10tb:/backups/incremental/"$curr_date" --log-file=C:/Users/faris/rclone_logs/faris_pcloud.txt  --log-level=INFO --filter-from rclone-sync-filter-list.txt -P -l --max-backlog=-1 --transfers=30 --buffer-size=50M --use-mmap --fast-list --drive-chunk-size 64M --retries 3 --timeout 60s --contimeout 60s'
 # sync C:/Users/faris to NAS
-rclone sync "C:/Users/faris/" Z:/backups/mirror/faris --backup-dir Z:/backups/incremental/"$curr_date"                      --filter-from rclone-sync-filter-list.txt -P -l --max-backlog=-1 --transfers=30 --buffer-size=50M --use-mmap --fast-list --drive-chunk-size 64M --retries 3 --timeout 60s --contimeout 60s
-
+Start-Process -FilePath rclone -ArgumentList 'sync "C:/Users/faris/" Z:/backups/mirror/faris --backup-dir Z:/backups/incremental/"$curr_date" --log-file=C:/Users/faris/rclone_logs/faris_nas.txt  --log-level=INFO                      --filter-from rclone-sync-filter-list.txt -P -l --max-backlog=-1 --transfers=30 --buffer-size=50M --use-mmap --fast-list --drive-chunk-size 64M --retries 3 --timeout 60s --contimeout 60s'
 # sync C:/Users/faris to E: internal drive
-rclone sync "C:/Users/faris/" E:/backups/mirror/faris --backup-dir E:/backups/incremental/"$curr_date"                      --filter-from rclone-sync-filter-list.txt -P -l --max-backlog=-1 --transfers=30 --buffer-size=50M --use-mmap --fast-list --drive-chunk-size 64M --retries 3 --timeout 60s --contimeout 60s
-
+Start-Process -FilePath rclone -ArgumentList 'sync "C:/Users/faris/" E:/backups/mirror/faris --backup-dir E:/backups/incremental/"$curr_date" --log-file=C:/Users/faris/rclone_logs/faris_e.txt  --log-level=INFO                        --filter-from rclone-sync-filter-list.txt -P -l --max-backlog=-1 --transfers=30 --buffer-size=50M --use-mmap --fast-list --drive-chunk-size 64M --retries 3 --timeout 60s --contimeout 60s'
 
 # sync D: to pcloud
-rclone sync "D:/" pcloud10tb:/backups/mirror/d --backup-dir pcloud10tb:/backups/incremental/"$curr_date"                    --filter-from rclone-sync-filter-list.txt -P -l --max-backlog=-1 --transfers=30 --buffer-size=50M --use-mmap --fast-list --drive-chunk-size 64M --retries 3 --timeout 60s --contimeout 60s
-
+Start-Process -FilePath rclone -ArgumentList 'sync "D:/" pcloud10tb:/backups/mirror/d --backup-dir pcloud10tb:/backups/incremental/"$curr_date" --log-file=C:/Users/faris/rclone_logs/d_pcloud.txt  --log-level=INFO                     --filter-from rclone-sync-filter-list.txt -P -l --max-backlog=-1 --transfers=30 --buffer-size=50M --use-mmap --fast-list --drive-chunk-size 64M --retries 3 --timeout 60s --contimeout 60s'
 # sync D: to NAS
-rclone sync "D:/" Z:/backups/mirror/d --backup-dir Z:/backups/incremental/"$curr_date"                                      --filter-from rclone-sync-filter-list.txt -P -l --max-backlog=-1 --transfers=30 --buffer-size=50M --use-mmap --fast-list --drive-chunk-size 64M --retries 3 --timeout 60s --contimeout 60s
-
+Start-Process -FilePath rclone -ArgumentList 'sync "D:/" Z:/backups/mirror/d --backup-dir Z:/backups/incremental/"$curr_date" --log-file=C:/Users/faris/rclone_logs/d_nas.txt  --log-level=INFO                                          --filter-from rclone-sync-filter-list.txt -P -l --max-backlog=-1 --transfers=30 --buffer-size=50M --use-mmap --fast-list --drive-chunk-size 64M --retries 3 --timeout 60s --contimeout 60s'
 # sync D: to E: internal drive
-rclone sync "D:/" E:/backups/mirror/d --backup-dir E:/backups/incremental/"$curr_date"                                      --filter-from rclone-sync-filter-list.txt -P -l --max-backlog=-1 --transfers=30 --buffer-size=50M --use-mmap --fast-list --drive-chunk-size 64M --retries 3 --timeout 60s --contimeout 60s
-
+Start-Process -FilePath rclone -ArgumentList 'sync "D:/" E:/backups/mirror/d --backup-dir E:/backups/incremental/"$curr_date" --log-file=C:/Users/faris/rclone_logs/d_e.txt  --log-level=INFO                                            --filter-from rclone-sync-filter-list.txt -P -l --max-backlog=-1 --transfers=30 --buffer-size=50M --use-mmap --fast-list --drive-chunk-size 64M --retries 3 --timeout 60s --contimeout 60s'
 
 #: Shows progress while transferring files.
 # --transfers 10: Allows up to 10 file transfers to run in parallel.
