@@ -28,6 +28,7 @@ setting up a computer to be in Farise's standards with just a single click, and 
 - [ ] add toolbar for downloads
 - [ ] type UAC and set slider all the way down
 - [ ] expose ports https://winaero.com/open-port-windows-firewall-windows-10/
+- [ ] exclude folders from antivirus scanning https://support.microsoft.com/en-us/windows/add-an-exclusion-to-windows-security-811816c0-4dfd-af4a-47e4-c301afe13b26#:~:text=Go%20to%20Start%20%3E%20Settings%20%3E%20Update,%2C%20file%20types%2C%20or%20process.
 
 ```powershell
 # WARNING: may RESTART the PC
@@ -113,7 +114,7 @@ choco install -y docker-machine
 choco install -y docker-compose
 choco install -y docker-desktop
 choco install -y syncthing
-
+choco install -y warp
 
 # Some tools...
 choco install -y 7zip.install
@@ -187,7 +188,7 @@ curl -L "https://github.com/H-M-H/Weylus/releases/download/v0.11.4/Windows.zip" 
 - [ ] add border around active window: settings > personalization > colors > Title bars and windows borders
 - [ ] clean bookmarks (deduplicate and remove annoying empty folders)
 - [ ] powertoys disable coffee and mouse stuff
-- [ ] `touch ~/init.cmd` and add `C:\Program Files\Git\git-bash.exe --cd-to-home` to it
+- [ ] `echo "C:\Program Files\Git\git-bash.exe --cd-to-home" >> ~/init.cmd`
 - [ ] modify "C:\tools\Anaconda3\condabin\conda_hook.bat" (add `conda activate base`)
 - [ ] qbittorrent dark theme: q
 - [ ] add synology NAS `\\FarisNAS\main`
@@ -347,3 +348,8 @@ Links:
 - <https://geekylifestyle.com/remove-windows-10-bloat-with-this-amazing-script>
 - <https://gist.githubusercontent.com/matthewjberger/2f4295887d6cb5738fa34e597f457b7f/raw/b23fa065febed8a2d7c2f030fba6da381f640997/Remove-Windows10-Bloat.bat>
 - that powershell script that disables windows telemetry and stuff
+
+## Restore Microsoft store
+
+In case you've deleted you're microsoft store, you can use this repo to get it back: https://github.com/kkkgo/LTSB-Add-MicrosoftStore
+
