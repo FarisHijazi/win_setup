@@ -162,12 +162,8 @@ in powershell, run:
 
 Copy `id_rsa.pub` file to windows server at location `C:\ProgramData\ssh\administrators_authorized_keys` (you might have to create this file)
 
-you might also wanna the following to the `sshd_config`
+be aware that `sshd_config` is in `C:\ProgramData\ssh\sshd_config`
 
-```sh
-Host ssh.yourdomain.com
-  ProxyCommand cloudflared access ssh-gen --hostname %h && cloudflared access ssh --hostname %h
-```
 
 ```sh
 # create ~/bin
