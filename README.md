@@ -141,6 +141,15 @@ choco install -y miniconda3 --params="'/AddToPath:1 /RegisterPython:1'"
 choco install -y cmake --installargs 'ADD_CMAKE_TO_PATH=System'
 
 # winget install -y -e --id Docker.DockerDesktop
+
+
+winget install --accept-package-agreements "AV1 Video Extension"
+winget install --accept-package-agreements "MPEG-2 Video Extension"
+winget install --accept-package-agreements "VP9 Video Extensions"
+winget install --accept-package-agreements "Raw Image Extension"
+winget install --accept-package-agreements "HEIF Image Extensions"
+winget install --accept-package-agreements "Web Media Extensions"
+winget install --accept-package-agreements "Webp Image Extensions"
 ```
 
 install openssh
